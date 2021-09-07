@@ -17,20 +17,16 @@ echo NUMBA_COMMIT=$NUMBA_COMMIT
 curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh --output  ~/miniconda.sh
 bash ~/miniconda.sh -b -p /opt/miniconda
 source /opt/miniconda/bin/activate
-conda create -y -n buildenv
+conda create -c numba/label/manylinux2014 -y -n buildenv llvmdev
 conda activate buildenv
-/opt/miniconda/bin/conda install -n buildenv /root/hostpwd/llvmdev-11.1.0-manylinux2014.tar.bz2
 git clone https://github.com/esc/llvmlite.git
 cd llvmlite
 git checkout $LLVMLITE_COMMIT
-LLVM_CONFIG=/opt/miniconda/bin/llvm-config $PYTHON setup.py bdist_wheel
-cd dist
-auditwheel --verbose repair *.whl
-cd ..
+LLVM_CONFIG=/opt/miniconda/envs/buildenv/bin/llvm-config $PYTHON setup.py install
 $PYTHON -m llvmlite.tests
-exec bash
 cd ..
-git clone https://github.com/numba/numba.git
+$PYTHON -m pip install numpy
+git clone https://github.com/esc/numba.git
 cd numba
 git checkout $NUMBA_COMMIT
 $PYTHON setup.py build_ext -i && $PYTHON setup.py develop --no-deps

@@ -3,4 +3,4 @@
 update:
 	docker pull quay.io/pypa/manylinux2014_x86_64
 compile:
-	docker run -it -v ${PWD}:/root/hostpwd/ quay.io/pypa/manylinux2014_x86_64 /root/hostpwd/compile.sh 334c000d5a6d19133e3ce3b7a2c847cd682f4ebf
+	docker run -it -v ${PWD}:/root/hostpwd/ quay.io/pypa/manylinux2014_x86_64 /root/hostpwd/compile.sh 334c000d5a6d19133e3ce3b7a2c847cd682f4ebf 7abf035f96e173431594e195a1a3e87de70c4e74
