@@ -30,6 +30,7 @@ git clone https://github.com/esc/numba.git
 cd numba
 git checkout $NUMBA_COMMIT
 $PYTHON setup.py build_ext -i && $PYTHON setup.py develop --no-deps
+cd ..
 $PYTHON -m numba.runtests
 exec bash
 
