@@ -29,7 +29,7 @@ $PYTHON -m pip install numpy==1.20
 git clone https://github.com/esc/numba.git
 cd numba
 git checkout $NUMBA_COMMIT
-$PYTHON setup.py build_ext -i && $PYTHON setup.py develop --no-deps
+$PYTHON setup.py build_ext -i && $PYTHON setup.py develop
 cd ..
 $PYTHON -m numba.runtests
 exec bash
