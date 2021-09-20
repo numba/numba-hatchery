@@ -25,7 +25,7 @@ git checkout $LLVMLITE_COMMIT
 LLVM_CONFIG=/opt/miniconda/envs/buildenv/bin/llvm-config $PYTHON setup.py install
 $PYTHON -m llvmlite.tests
 cd ..
-$PYTHON -m pip install numpy
+$PYTHON -m pip install numpy==1.20
 git clone https://github.com/esc/numba.git
 cd numba
 git checkout $NUMBA_COMMIT
