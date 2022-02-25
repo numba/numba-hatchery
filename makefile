@@ -1,6 +1,8 @@
 .DEFAULT_GOAL=compile
 
 update:
-	docker pull quay.io/pypa/manylinux2014_x86_64
+	docker pull python:3.11.0a5-buster
+build:
+	docker build -t hatchery-bootstrap hatchery-bootstrap
 compile:
-	docker run -it -v ${PWD}:/root/hostpwd/ quay.io/pypa/manylinux2014_x86_64 /root/hostpwd/compile.sh python3.10 exp/3.10+new_with_detection
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile.sh /root/hostpwd/py311.conf
