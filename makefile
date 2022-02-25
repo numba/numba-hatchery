@@ -1,7 +1,7 @@
 .DEFAULT_GOAL=compile
 
 update:
-	docker pull python:3.11.0a5-buster
+	docker pull python:3.11.0a5-bullseye
 build:
 	docker build -t hatchery-bootstrap hatchery-bootstrap
 compile:

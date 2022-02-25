@@ -6,15 +6,16 @@ git clone https://github.com/esc/llvmlite.git
 cd llvmlite
 git checkout $MY_LLVMLITE_COMMIT
 export LLVM_CONFIG=/opt/miniconda/envs/buildenv/bin/llvm-config
-$MY_PYTHON setup.py install
+# When building on the python:3.11.0a5-bullseye image using the llvmdev that was
+# compiled on a quay.io/pypa/manylinux2014_x86_64 image, we need to clamp the
+# C++ ABI version to 0.
+CXXFLAGS="$CXXFLAGS -D_GLIBCXX_USE_CXX11_ABI=0" $MY_PYTHON setup.py install
 $MY_PYTHON -m llvmlite.tests
 cd ..
-$MY_PYTHON -m pip install numpy
 git clone https://github.com/esc/numba.git
 cd numba
 git checkout $MY_NUMBA_COMMIT
 $MY_PYTHON setup.py build_ext -i && $MY_PYTHON setup.py develop
 cd ..
-#$PYTHON -m numba.runtests
+$MY_PYTHON -m numba.runtests -m 6
 exec bash
-
