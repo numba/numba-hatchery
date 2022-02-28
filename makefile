@@ -5,4 +5,4 @@ update:
 build:
 	docker build -t hatchery-bootstrap hatchery-bootstrap
 compile:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile.sh /root/hostpwd/py311.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile.sh /root/hostpwd/py311.local.conf

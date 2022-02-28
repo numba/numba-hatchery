@@ -1,8 +1,11 @@
 #!/bin/sh
 set -x
 
+# Source the configuration file
 . $1
-git clone https://github.com/esc/llvmlite.git
+
+# llvmlite
+git clone $MY_LLVMLITE_URL
 cd llvmlite
 git checkout $MY_LLVMLITE_COMMIT
 export LLVM_CONFIG=/opt/miniconda/envs/buildenv/bin/llvm-config
@@ -12,7 +15,9 @@ export LLVM_CONFIG=/opt/miniconda/envs/buildenv/bin/llvm-config
 CXXFLAGS="$CXXFLAGS -D_GLIBCXX_USE_CXX11_ABI=0" $MY_PYTHON setup.py install
 $MY_PYTHON -m llvmlite.tests
 cd ..
-git clone https://github.com/esc/numba.git
+
+# numba
+git clone $MY_NUMBA_URL
 cd numba
 git checkout $MY_NUMBA_COMMIT
 $MY_PYTHON setup.py build_ext -i && $MY_PYTHON setup.py develop
