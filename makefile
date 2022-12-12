@@ -8,3 +8,5 @@ clone:
 	./clone.sh py311.conf
 compile:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile.sh /root/hostpwd/py311.local.conf
+compile_and_test:
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile_and_test.sh /root/hostpwd/py311.local.conf
