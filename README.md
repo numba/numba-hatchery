@@ -40,10 +40,17 @@ make clone
 Will clone the correct repositories and references and place them such that
 they can be mounted into the docker container.
 
+```
+make compile
+```
+
+Will launch the compilation of `llvmlite`, followed by`Numba` in
+the pre-built docker container.
+
 Finally, the command:
 
 ```
-make compile
+make compile_and_test
 ```
 
 Will launch the compilation and testing of `llvmlite`, followed by`Numba` in
