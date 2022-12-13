@@ -6,11 +6,11 @@ set -x
 
 # Clone the repos
 git clone $MY_LLVMLITE_URL
-pushd llvmlite
-git checkout MY_LLVMLITE_COMMIT
-popd
+cd llvmlite
+git checkout $MY_LLVMLITE_COMMIT
+cd ..
 
 git clone $MY_NUMBA_URL
-pushd numba
+cd numba
 git checkout $MY_NUMBA_COMMIT 
-popd
+cd ..
