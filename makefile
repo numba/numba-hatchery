@@ -3,7 +3,7 @@
 update:
 	docker pull --platform linux/amd64 python:3.11.1-bullseye
 build:
-	docker build --no-cache -t  hatchery-bootstrap hatchery-bootstrap
+	docker build --no-cache -t hatchery-bootstrap hatchery-bootstrap
 clone:
 	./clone.sh py311.conf
 compile:
