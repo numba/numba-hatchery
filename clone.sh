@@ -5,5 +5,12 @@ set -x
 . $1
 
 # Clone the repos
-git clone -b $MY_LLVMLITE_COMMIT $MY_LLVMLITE_URL
-git clone -b $MY_NUMBA_COMMIT $MY_NUMBA_URL
+git clone $MY_LLVMLITE_URL
+pushd llvmlite
+git checkout MY_LLVMLITE_COMMIT
+popd
+
+git clone $MY_NUMBA_URL
+pushd numba
+git checkout $MY_NUMBA_COMMIT 
+popd
