@@ -1,7 +1,7 @@
 .DEFAULT_GOAL=compile
 
 update:
-	docker pull python:3.11.0rc1-bullseye
+	docker pull python:3.11.1-bullseye
 build:
 	docker build --no-cache -t hatchery-bootstrap hatchery-bootstrap
 clone:
