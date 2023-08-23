@@ -5,8 +5,9 @@ update:
 build:
 	docker build --no-cache -t hatchery-bootstrap hatchery-bootstrap
 clone:
+	rm -rf llvmlite numba
 	./clone.sh py312.conf
 compile:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile.sh /root/hostpwd/py312.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile.sh /root/hostpwd/py312.local.conf
 compile_and_test:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile_and_test.sh /root/hostpwd/py312.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile_and_test.sh /root/hostpwd/py312.local.conf
