@@ -3,7 +3,7 @@
 update-pypi:
 	docker pull --platform linux/amd64 python:3.12.0rc1-bullseye
 update-aorg:
-	docker pull --platform linux/amd64 ubuntu:latest
+	docker pull --platform linux/amd64 continuumio/miniconda3
 build-pypi:
 	docker build --no-cache -t hatchery-bootstrap hatchery-bootstrap
 build-aorg:
