@@ -22,6 +22,6 @@ cd ..
 git clone $MY_NUMBA_URL
 cd numba
 git checkout $MY_NUMBA_COMMIT
-$MY_PYTHON setup.py build_ext -i && $MY_PYTHON setup.py develop --no-deps
+$MY_PYTHON -m pip install -e .
 cd ..
 exec bash
