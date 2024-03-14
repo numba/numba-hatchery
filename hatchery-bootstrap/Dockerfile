@@ -5,4 +5,4 @@ RUN bash ~/miniconda.sh -b -p /opt/miniconda
 RUN . /opt/miniconda/bin/activate && \
     conda create -c numba/label/manylinux2014 -y -n buildenv llvmdev && \
     conda activate buildenv
-RUN python3.13 -m pip install --pre numpy
+RUN python3.13 -m pip install --pre numpy==1.26.3
