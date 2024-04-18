@@ -19,6 +19,6 @@ cd ..
 git clone $MY_NUMBA_URL
 cd numba
 git checkout $MY_NUMBA_COMMIT
-cd ..
 $MY_PYTHON -m pip install -e .
+cd ..
 exec bash
