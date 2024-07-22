@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 python:3.13.0a6-bullseye
+FROM --platform=linux/amd64 python:3.13.0b4-bullseye
 
 RUN curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh --output  ~/miniconda.sh
 RUN bash ~/miniconda.sh -b -p /opt/miniconda
