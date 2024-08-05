@@ -1,7 +1,7 @@
 .DEFAULT_GOAL=compile-pypi
 
 update-pypi:
-	docker pull --platform linux/amd64 python:3.13.0b4-bullseye
+	docker pull --platform linux/amd64 python:3.13.0rc1-bullseye
 update-aorg:
 	docker pull --platform linux/amd64 continuumio/miniconda3
 build-pypi:

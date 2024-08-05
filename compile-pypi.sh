@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+set -xe
 
 # Source the configuration file
 . $1
@@ -15,10 +15,10 @@ export LLVM_CONFIG=/opt/miniconda/envs/buildenv/bin/llvm-config
 CXXFLAGS="$CXXFLAGS -D_GLIBCXX_USE_CXX11_ABI=0" $MY_PYTHON setup.py install
 cd ..
 
-# numba
-git clone $MY_NUMBA_URL
-cd numba
-git checkout $MY_NUMBA_COMMIT
-$MY_PYTHON -m pip install -e .
-cd ..
-exec bash
+# # numba
+# git clone $MY_NUMBA_URL
+# cd numba
+# git checkout $MY_NUMBA_COMMIT
+# $MY_PYTHON -m pip install -e .
+# cd ..
+# exec bash
