@@ -10,12 +10,12 @@ build-aorg:
 	docker build --no-cache -t hatchery-bootstrap-aorg hatchery-bootstrap-aorg
 clone:
 	rm -rf llvmlite numba
-	./clone.sh py313.conf
+	./clone.sh py314.conf
 compile-pypi:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile-pypi.sh /root/hostpwd/py313.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile-pypi.sh /root/hostpwd/py314.local.conf
 compile-aorg:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg /root/hostpwd/compile-aorg.sh /root/hostpwd/py313.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf
 compile_and_test-pypi:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile_and_test-pypi.sh /root/hostpwd/py313.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile_and_test-pypi.sh /root/hostpwd/py314.local.conf
 compile_and_test-aorg:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg /root/hostpwd/compile_and_test-aorg.sh /root/hostpwd/py313.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg /root/hostpwd/compile_and_test-aorg.sh /root/hostpwd/py314.local.conf
