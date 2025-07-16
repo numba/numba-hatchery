@@ -18,11 +18,19 @@ build-aorg:
 clone:
 	rm -rf llvmlite numba
 	./clone.sh py314.conf
-compile-pypi:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile-pypi.sh /root/hostpwd/py314.local.conf
+
+compile-pypi-amd64:
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-amd64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf
+compile-pypi-arm64:
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf
+
 compile-aorg:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf
-compile_and_test-pypi:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap /root/hostpwd/compile_and_test-pypi.sh /root/hostpwd/py314.local.conf
+
+compile_and_test-pypi-amd64:
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-amd64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf --test
+compile_and_test-pypi-arm64:
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf --test
+
 compile_and_test-aorg:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg /root/hostpwd/compile_and_test-aorg.sh /root/hostpwd/py314.local.conf
