@@ -1,11 +1,18 @@
 .DEFAULT_GOAL=compile-pypi
 
-update-pypi:
+update-pypi-amd64:
 	docker pull --platform linux/amd64 python:3.14-rc
+update-pypi-arm64:
+	docker pull --platform linux/arm64 python:3.14-rc
+
 update-aorg:
 	docker pull --platform linux/amd64 continuumio/miniconda3
-build-pypi:
-	docker build --no-cache -t hatchery-bootstrap hatchery-bootstrap
+
+build-pypi-amd64:
+	docker build --no-cache -t hatchery-bootstrap-amd64 hatchery-bootstrap-amd64
+build-pypi-arm64:
+	docker build --no-cache -t hatchery-bootstrap-arm64 hatchery-bootstrap-arm64
+
 build-aorg:
 	docker build --no-cache -t hatchery-bootstrap-aorg hatchery-bootstrap-aorg
 clone:
