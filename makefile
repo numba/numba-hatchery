@@ -1,4 +1,4 @@
-.DEFAULT_GOAL=compile-pypi
+.DEFAULT_GOAL=compile_and_test-pypi-arm64
 
 # The general idea here is to provide a framework for developing cpython minor
 # updates support for the Numba stack: llvmlite and Numba. This is achieved by

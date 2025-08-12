@@ -78,6 +78,6 @@ if [ "$RUN_TESTS" = true ]; then
     cd -
 fi
 
-alias update_numba='cd /numba && git fetch --all && git reset --hard @{u} && python setup.py install && cd -'
+echo "alias update_numba='cd /numba && git fetch --all && git reset --hard @{u} && python setup.py install && cd -'" >> ~/.bashrc
 
 exec bash
