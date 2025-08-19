@@ -34,7 +34,7 @@ update-pypi-amd64:
 update-pypi-arm64:
 	docker pull --platform linux/arm64 python:3.14-rc
 
-update-aorga-amd64:
+update-aorg-amd64:
 	docker pull --platform linux/amd64 continuumio/miniconda3
 update-aorg-arm64:
 	docker pull --platform linux/arm64 continuumio/miniconda3
