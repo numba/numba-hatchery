@@ -48,7 +48,7 @@ conda activate buildenv
 git clone $MY_LLVMLITE_URL
 cd llvmlite
 git checkout $MY_LLVMLITE_COMMIT
-export LLVM_CONFIG=/opt/conda/envs/buildenv/bin/llvm-config
+export CMAKE_PREFIX_PATH=/opt/miniconda/envs/buildenv/lib/cmake/llvm/
 
 # Apply CXX ABI flag automatically on x86_64
 if [ "$(uname -m)" = "x86_64" ]; then
