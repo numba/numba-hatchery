@@ -76,9 +76,9 @@ compile-pypi-arm64:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf
 
 compile-aorg-amd64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg-new.sh /root/hostpwd/py314.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf
 compile-aorg-arm64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg-new.sh /root/hostpwd/py314.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf
 
 compile_and_test-pypi-amd64:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-amd64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf --test
@@ -86,6 +86,6 @@ compile_and_test-pypi-arm64:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf --test
 
 compile_and_test-aorg-amd64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg-new.sh /root/hostpwd/py314.local.conf --test
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf --test
 compile_and_test-aorg-arm64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg-new.sh /root/hostpwd/py314.local.conf --test
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf --test
