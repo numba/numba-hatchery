@@ -34,8 +34,10 @@ update-pypi-amd64:
 update-pypi-arm64:
 	docker pull --platform linux/arm64 python:3.14-rc
 
-update-aorg:
+update-aorg-amd64:
 	docker pull --platform linux/amd64 continuumio/miniconda3
+update-aorg-arm64:
+	docker pull --platform linux/arm64 continuumio/miniconda3
 
 # The `build-*` targets will build a docker container that contains the other two
 # major dependencies of the Numba stack: LLVM and Numpy. LLVM will be obtained
@@ -48,8 +50,10 @@ build-pypi-amd64:
 build-pypi-arm64:
 	docker build --no-cache -t hatchery-bootstrap-arm64 hatchery-bootstrap-arm64
 
-build-aorg:
-	docker build --no-cache -t hatchery-bootstrap-aorg hatchery-bootstrap-aorg
+build-aorg-amd64:
+	docker build --no-cache -t hatchery-bootstrap-aorg-amd64 hatchery-bootstrap-aorg-amd64
+build-aorg-arm64:
+	docker build --no-cache -t hatchery-bootstrap-aorg-arm64 hatchery-bootstrap-aorg-arm64
 
 # The `clone command will clone the correct llvmlite and Numba repositories and
 # checkout the correct branches. Go read the `clone.sh` and `.conf` files to
@@ -71,13 +75,17 @@ compile-pypi-amd64:
 compile-pypi-arm64:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf
 
-compile-aorg:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf
+compile-aorg-amd64:
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf
+compile-aorg-arm64:
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf
 
 compile_and_test-pypi-amd64:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-amd64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf --test
 compile_and_test-pypi-arm64:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf --test
 
-compile_and_test-aorg:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg /root/hostpwd/compile_and_test-aorg.sh /root/hostpwd/py314.local.conf
+compile_and_test-aorg-amd64:
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf --test
+compile_and_test-aorg-arm64:
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf --test
