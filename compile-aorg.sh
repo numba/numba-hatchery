@@ -48,14 +48,9 @@ conda activate buildenv
 git clone $MY_LLVMLITE_URL
 cd llvmlite
 git checkout $MY_LLVMLITE_COMMIT
-export LLVM_CONFIG=/opt/conda/envs/buildenv/bin/llvm-config
+export CMAKE_PREFIX_PATH=/opt/miniconda/envs/buildenv/lib/cmake/llvm/
 
-# Apply CXX ABI flag automatically on x86_64
-if [ "$(uname -m)" = "x86_64" ]; then
-    CXXFLAGS="$CXXFLAGS -D_GLIBCXX_USE_CXX11_ABI=0" $MY_PYTHON setup.py install
-else
-    $MY_PYTHON setup.py install
-fi
+$MY_PYTHON setup.py install
 
 # Run llvmlite tests if requested
 if [ "$RUN_TESTS" = true ]; then
