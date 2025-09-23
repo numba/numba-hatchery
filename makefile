@@ -89,3 +89,31 @@ compile_and_test-aorg-amd64:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf --test
 compile_and_test-aorg-arm64:
 	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf --test
+
+# All images are useful for testing the entire pipeline
+
+all-pypi-amd64:
+	make update-pypi-amd64
+	make build-pypi-amd64
+	make compile_and_test-pypi-amd64
+
+all-pypi-arm64:
+	make update-pypi-arm64
+	make build-pypi-arm64
+	make compile_and_test-pypi-arm64
+
+all-aorg-amd64:
+	make update-aorg-amd64
+	make build-aorg-amd64
+	make compile_and_test-aorg-amd64
+
+all-aorg-arm64:
+	make update-aorg-arm64
+	make build-aorg-arm64
+	make compile_and_test-aorg-arm64
+
+all:
+	make all-pypi-amd64
+	make all-pypi-arm64
+	make all-aorg-amd64
+	make all-aorg-arm64
