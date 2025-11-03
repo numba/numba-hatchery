@@ -1,8 +1,8 @@
 .DEFAULT_GOAL=compile_and_test-pypi-arm64
 
-# The general idea here is to provide a framework for developing cpython minor
+# The general idea here is to provide a framework for developing CPython minor
 # updates support for the Numba stack: llvmlite and Numba. This is achieved by
-# virtue of docker containers provided eithe by the Python project or Anaconda
+# virtue of docker containers provided either by the Python project or Anaconda
 # that contain pre-releases or release candidates. A bootstrapping container
 # will be built that contains the three major dependencies:
 #
@@ -27,7 +27,7 @@
 # $ make clone                          # clone sources
 # $ make compile_and_test-pypi-arm64    # compile and test stack
 
-# The `update-*` targets will fetch a suitabl Python docker container.
+# The `update-*` targets will fetch a suitable Python docker container.
 
 update-pypi-amd64:
 	docker pull --platform linux/amd64 python:3.14-rc
@@ -41,7 +41,7 @@ update-aorg-arm64:
 
 # The `build-*` targets will build a docker container that contains the other two
 # major dependencies of the Numba stack: LLVM and Numpy. LLVM will be obtained
-# using an injection of the miniconda distriubtion and subsequent installation
+# using an injection of the miniconda distribution and subsequent installation
 # of the `llvmdev` package. Numpy will be either installed as a binary wheel or
 # compiled from source.
 
@@ -63,9 +63,9 @@ clone:
 	rm -rf llvmlite numba
 	./clone.sh py314.conf
 
-# The compile-* and the compil_and_test targets do exactly that. Either compile
-# llvmlite and Numba or compile and test llvmlite and Numba. They use the
-# docker containers built by the `build-*` targets to supply suitable
+# The compile-* and the compile_and_test-* targets do exactly that. Either
+# compile llvmlite and Numba or compile and test llvmlite and Numba. They use
+# the docker containers built by the `build-*` targets to supply suitable
 # dependencies. Using the `.local.conf` configuration files points to local
 # clones of the Numba and llvmlite so modifications can be made locally and
 # tested within this framework.
