@@ -6,5 +6,5 @@ RUN bash ~/miniconda.sh -b -p /opt/miniconda
 RUN . /opt/miniconda/bin/activate && \
     conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main  && \
     conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r && \
-    conda create -c numba/label/llvm20-wheel -y -n buildenv llvmdev=20
+    conda create -c numba/label/llvm_wheel -y -n buildenv llvmdev=22
 RUN python3.15 -m pip install --pre numpy setuptools
