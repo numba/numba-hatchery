@@ -30,9 +30,9 @@
 # The `update-*` targets will fetch a suitable Python docker container.
 
 update-pypi-amd64:
-	docker pull --platform linux/amd64 python:3.14-rc
+	docker pull --platform linux/amd64 python:3.15-rc
 update-pypi-arm64:
-	docker pull --platform linux/arm64 python:3.14-rc
+	docker pull --platform linux/arm64 python:3.15-rc
 
 update-aorg-amd64:
 	docker pull --platform linux/amd64 continuumio/miniconda3
@@ -61,7 +61,7 @@ build-aorg-arm64:
 
 clone:
 	rm -rf llvmlite numba
-	./clone.sh py314.conf
+	./clone.sh py315.conf
 
 # The compile-* and the compile_and_test-* targets do exactly that. Either
 # compile llvmlite and Numba or compile and test llvmlite and Numba. They use
@@ -71,24 +71,24 @@ clone:
 # tested within this framework.
 
 compile-pypi-amd64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-amd64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-amd64 /root/hostpwd/compile.sh /root/hostpwd/py315.local.conf
 compile-pypi-arm64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py315.local.conf
 
 compile-aorg-amd64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py315.local.conf
 compile-aorg-arm64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py315.local.conf
 
 compile_and_test-pypi-amd64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-amd64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf --test
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-amd64 /root/hostpwd/compile.sh /root/hostpwd/py315.local.conf --test
 compile_and_test-pypi-arm64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py314.local.conf --test
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-arm64 /root/hostpwd/compile.sh /root/hostpwd/py315.local.conf --test
 
 compile_and_test-aorg-amd64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf --test
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-amd64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py315.local.conf --test
 compile_and_test-aorg-arm64:
-	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py314.local.conf --test
+	docker run -it -v ${PWD}:/root/hostpwd/ hatchery-bootstrap-aorg-arm64 /root/hostpwd/compile-aorg.sh /root/hostpwd/py315.local.conf --test
 
 # All images are useful for testing the entire pipeline
 
